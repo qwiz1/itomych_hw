@@ -1,0 +1,9 @@
+{
+  "name": "itomych_hw",
+  "version": "1.0.0",
+  "description": "HW",
+  "main": "index.js",
+  "type": "module",
+  "author": "",
+  "license": "ISC"
+}
