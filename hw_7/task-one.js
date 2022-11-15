@@ -4,10 +4,10 @@ class Shape {
     this.yPosition = y;
   }
 }
-
+// x, y = center
 class Rectangle extends Shape {
-  //#corners are private, to realize encapsulation. Just for example.
-  #corners = 4;
+  //#cornerPos are private, to realize encapsulation. Just for example.
+  #cornersPos = {};
   constructor(x, y, height, width) {
     super(x, y);
     this.height = height;
@@ -22,8 +22,24 @@ class Rectangle extends Shape {
     return 2 * (this.height + this.width);
   }
 
-  getCorners() {
-    return this.#corners;
+  getCornersPosition() {
+    // x1, y1 - left bottom
+    this.#cornersPos.x1 = this.xPosition - this.width / 2;
+    this.#cornersPos.y1 = this.yPosition - this.height / 2;
+
+    // x2, y2 - left top
+    this.#cornersPos.x2 = this.xPosition - this.width / 2;
+    this.#cornersPos.y2 = this.yPosition + this.height / 2;
+
+    // x3, y3 - right top
+    this.#cornersPos.x3 = this.xPosition + this.width / 2;
+    this.#cornersPos.y3 = this.yPosition + this.height / 2;
+
+    // x4, y4 - right bottom
+    this.#cornersPos.x4 = this.xPosition + this.width / 2;
+    this.#cornersPos.y4 = this.yPosition - this.height / 2;
+
+    return this.#cornersPos;
   }
 
   getDiagonal() {
@@ -89,11 +105,13 @@ const triangle = new Triangle(0, 0, 6, 8);
 const circle = new Circle(1, 1, 1);
 const ellipse = new Ellipse(1, 0, 2, 4);
 
-console.log(`Square area: ${square.getArea()}`);
-console.log(`Square perimeter: ${square.getPerimeter()}`);
+// console.log(`Square area: ${square.getArea()}`);
+// console.log(`Square perimeter: ${square.getPerimeter()}`);
 
-console.log(`Rectangle area: ${rectangle.getArea()}`);
-console.log(`Rectangle perimeter: ${rectangle.getPerimeter()}`);
+// console.log(`Rectangle area: ${rectangle.getArea()}`);
+// console.log(`Rectangle perimeter: ${rectangle.getPerimeter()}`);
 
-console.log(rectangle.getCorners());
-console.log(rectangle.getDiagonal());
+// console.log(rectangle.getCornersPosition());
+// console.log(rectangle.getDiagonal());
+
+export { Rectangle, Square, Triangle, Circle, Ellipse };
