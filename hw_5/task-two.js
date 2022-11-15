@@ -12,7 +12,7 @@ function Circle(x, y, radius) {
   };
 }
 
-function areaIntersectionOfTwoCircles(circle1, circle2) {
+export default function areaIntersectionOfTwoCircles(circle1, circle2) {
   const [x1, y1, r1] = [circle1.x, circle1.y, circle1.radius];
   const [x2, y2, r2] = [circle2.x, circle2.y, circle2.radius];
 
@@ -44,7 +44,7 @@ function areaIntersectionOfTwoCircles(circle1, circle2) {
 const circle1 = new Circle(0, 3, 2);
 const circle2 = new Circle(2, 1, 3);
 
-console.log(
-  'Intersection area ',
-  areaIntersectionOfTwoCircles(circle1, circle2),
-);
+// console.log(
+//   'Intersection area ',
+//   areaIntersectionOfTwoCircles(circle1, circle2),
+// );
